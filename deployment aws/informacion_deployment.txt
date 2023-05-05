@@ -1,0 +1,3 @@
+ssh -i "recetas_dojo_2023.pem" ubuntu@ec2-34-237-245-225.compute-1.amazonaws.com
+
+git clone https://github.com/rafa3012new/recetas_dojo
