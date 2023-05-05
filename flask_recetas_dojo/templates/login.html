@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block titulo %}Login{% endblock %}
+{% block contenido %}
+
+<div class="container mt-3 login">
+    <div class="row">
+        
+        <div class="col-md-10 col-lg-5 mt-4 reg border border-2 border-warning">
+
+            <h1 class="mt-1">User Register</h1>
+            <br>
+            <form action="{{url_for('procesar_registro')}}" method="post">
+                <div class="mb-4 input-group">
+                    <span for="user" class="input-group-text">User</span>
+                    <input type="text" name="user" class="form-control" id="user"  placeholder="Eg: johndoe" required>
+                </div>
+                <div class="mb-4 input-group">
+                    <span for="name" class="input-group-text">Name</span>
+                    <input type="text" name="name" class="form-control" id="name"  placeholder="Eg: John" required>
+                </div>
+                <div class="mb-4 input-group">
+                    <span for="lastname" class="input-group-text">Last Name</span>
+                    <input type="text" name="lastname" class="form-control" id="lastname"  placeholder="Eg: Doe" required>
+                </div>
+
+                <div class="mb-4 input-group">
+                    <span for="email" class="input-group-text">Email</span>
+                    <input type="email" name="email" class="form-control" id="email"  placeholder="Eg: johndow@email.com" required>
+                </div>
+
+                <div class="mb-4 input-group">
+                    <span for="password_reg" class="input-group-text">Password</span>
+                    <input type="password" name="password_reg" class="form-control" id="password_reg" required>
+                </div>
+
+                <div class="mb-4 input-group">
+                    <span for="cpassword_reg" class="input-group-text">Confirm Password</span>
+                    <input type="password" name="cpassword_reg" class="form-control" id="cpassword_reg" required>
+                </div>
+                <br>
+                <button type="submit" class="col-xs-1 btn btn-primary">Create User</button>
+            </form>
+
+        </div>
+
+        <div class="col-md-10 col-lg-5 mt-4 mb-5 log border border-2 border-warning">
+
+            <h1 class="mt-1">Login</h1>
+            <br>
+            <form action="{{url_for('procesar_login')}}" method="post">
+                <div class="mb-3 input-group">
+                    <span for="identification" class="input-group-text">Email o User</span>
+                    <input type="text" name="identification" class="form-control input-sm" id="identificacion" placeholder="Eg: user@email.com">
+                </div>
+                <div class="mb-3 input-group">
+                    <span for="password" class="input-group-text">Password</span>
+                    <input type="password" name="password" class="form-control" id="password">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success">Log in</button>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

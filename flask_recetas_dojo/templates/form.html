@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+{% include '_menu.html' %}
+
+<div class="container mt-4">
+    <h1 class="text-center">{{operacion}}</h1>
+    <br>
+    <hr>
+  <form action="/procesar_receta" method="post">
+    <div class="row g-2 mt-3">
+      <div class="col-md-12 col-lg-8 mt-3 mb-3 pb-3">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input value="{{receta.nombre}}" type="text" class="form-control" required name="nombre">
+        </div>
+        <div class="mb-3">
+          <label for="descripcion" class="form-label">Descripcion</label>
+          <textarea  rows="4" cols="50"  class="form-control" required name="descripcion" id="descripcion" style="resize:none;" >{{receta.descripcion}}</textarea>
+        </div>
+        <div class="mb-3">
+          <label for="instrucciones" class="form-label">Instrucciones</label>
+          <textarea  rows="4" cols="50"  class="form-control" required name="instrucciones" id="instrucciones" style="resize:none;">{{receta.instrucciones}}</textarea>
+        </div>
+      </div>
+
+      <div class="col-md-12 col-lg-4 mt-3 mb-3 pb-3" style="padding:100px 0 0 50px;">
+        <div class="mb-3">
+          <p>Menos de 30 Minutos?</p>
+            {%if receta.under30 == 1%}
+              <label for="under30_yes" class="form-check-label">Si</label>
+              <input value="1" type="radio" checked class="form-check-input" required name="under30" id="under30_yes">
+              <label for="under30_no" class="form-check-label">No</label>
+              <input value="0" type="radio" class="form-check-input" required name="under30" id="under30_no">
+            {%else%}
+              <label for="under30_yes" class="form-check-label">Si</label>
+              <input value="1" type="radio" class="form-check-input" required name="under30" id="under30_yes">
+              <label for="under30_no" class="form-check-label">No</label>
+              <input value="0" type="radio" checked class="form-check-input" required name="under30" id="under30_no">
+            {%endif%}
+        </div>
+        <div class="mb-3">
+          <label for="date_made" class="form-label">Fecha de Creacion</label>
+          <input value="{{receta.date_made}}" type="date" class="form-control" required name="date_made" id="date_made">
+        </div>
+      </div>
+
+  </div>
+
+  <div>
+    <input type="hidden" name="id" value="{{receta.id}}">
+    <input type="hidden" name="operacion" value="{{operacion}}">
+    <button type="submit" class="btn btn-primary">Grabar</button>
+    <a href="/" class="btn btn-danger">Cancelar</a>
+  </div>
+
+</form>
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block titulo %}Dashboard Principal{% endblock %}
+{% block contenido %}
+
+
+{% include '_menu.html' %}
+
+<div class="container mt-5">
+    <h1>Bienvenidos al Dashboard del Sistema : {{sistema}} </h1>
+
+    <hr>
+
+    <div class="row g-2 mt-4 " style="min-height:400px;">
+      <div class="col-md-12 col-lg-12 col-md mb-2 border">
+
+        <div class="p-3 mb-2 recetas" style="min-height: 200px;">
+          <h2 style="color:rebeccapurple;">Todas las Recetas Creadas : {{recetas|length}}</h2>
+          <hr>
+          <h4><a href="/crearreceta">+Crear Nueva Receta</a></h4>
+          <hr>
+            <table class="table table-resposive table-striped">
+              <thead class="bg-secondary text-light">
+                <tr>
+                  <th>Nombre</th>
+                  <th>Menos de 30 Min</th>
+                  <th>Autor</th>
+                  <th>Opciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {% for receta in recetas %}
+                    <tr>
+                      <td>{{receta.nombre}}</td>
+                      {%if receta.under30 == 1%}
+                        <td>Si</td>
+                      {%else%}
+                        <td>No</td>
+                      {%endif%}
+                      <td>{{receta.nombre_autor}}</td>
+                      {%if receta.autor == session['idusuario']%}
+                        <td><a href="/detalle_receta/{{receta.id}}">ver receta</a> | <a href="/editar_receta/{{receta.id}}">editar</a> | <a href="/eliminar_receta/{{receta.id}}" onclick="return confirm('Desea eliminar la receta?')">eliminar</a></td>
+                      {%else%}
+                        <td><a href="/detalle_receta/{{receta.id}}">ver receta</a></td>
+                      {%endif%}
+                    </tr>
+                  {% endfor %}
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

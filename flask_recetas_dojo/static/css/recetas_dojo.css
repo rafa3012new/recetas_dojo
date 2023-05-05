@@ -1,0 +1,50 @@
+/*Realizado por Rafael Fernandez 2023*/
+
+* {font-family: Calibri, 'Trebuchet MS', sans-serif}
+
+.login body{padding-top: 50px !important;}
+
+.login span{width: 150px; font-size: 1.1em !important;}
+
+.login input{min-width: 250px; max-width: 300px !important;}
+
+.login button, .center_col button, .center_col a{width: 150px;}
+
+.login .titulo{font-size: 1.15em !important;}
+
+.center_col{margin: 0 auto;}
+
+.panel_botones{text-align: center;}
+
+.center_col span{width: 170px; font-size: 1.1em !important;}
+
+.center_col input{width: 250px; max-width: 350px;}
+
+.reg, .log{
+    height: 550px;
+    text-align: center;
+    background-color: #345943; 
+    color: white;
+    border-radius: 5px;
+    padding-left: 45px !important;
+}
+
+.lista_detalle_receta li:not(:last-child){min-width: 500px; min-height: 50px; margin: 20px 0;}
+
+.lista_detalle_receta li div{min-width: 200px;}
+
+
+.lista_detalle_receta li{
+    display: flex;
+    gap:20px;
+}
+
+
+@media only screen and (min-width: 350px) {
+    .login .log{margin-left:0px; padding-top: 50px !important;}
+    .reg{margin-bottom: 50px !important;}
+}
+
+@media only screen and (min-width: 1000px) {
+    .login .log{margin-left:150px; padding-top: 0px !important;}
+  }

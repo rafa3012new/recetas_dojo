@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+{% endblock %}
+
+{% block contenido %}
+
+{% include '_menu.html' %}
+
+<div class="container mt-1">
+  <div><a  href="/" style="font-size: 1.3em;">Regresar</a></div>
+
+  <h1 class="text-center">Detalle de la Receta</h1>
+
+  <hr>
+
+  <div class="row mt-5 ">
+    <div><h6 class="col-4 text-end text-success mb-2" style="width:750px; margin:0 auto;">publicada por : {{receta.nombre_autor}}</h6></div>
+    <div class="col-4 mt-2 mb-2 border border-1 border-secondary" style="width:750px; margin:0 auto;">
+      <h3 class="text-center text-success"><div>{{receta.nombre}}</div></h3>
+      <hr>
+        <ul class="lista_detalle_receta">
+            <li><div>Descripcion:</div><div>{{receta.descripcion}}</div></li>
+            {%if receta.under30 == 1%}
+                <li><div>Menos de 30 Minutos?:</div><div>Si</div></li>
+            {%else%}
+                <li><div>Menos de 30 Minutos?:</div><div>No</div></li>
+            {%endif%}
+            <li><div>Instrucciones:</div><div>{{receta.instrucciones}}</div></li>
+            <li><div>Fecha de Creacion:</div><div>{{receta.date_made.strftime('%B %dth,%Y')}}</div></li>
+        </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
